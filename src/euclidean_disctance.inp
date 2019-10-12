@@ -1,0 +1,70 @@
+clear
+set verbose off
+
+scalar EXAMPLE = 1
+
+if EXAMPLE==1
+    scalar N = 5
+    scalar k = 3
+    matrix X = mnormal(N,k)
+elif EXAMPLE==2
+    matrix X = {0,1; 1,1}    
+elif EXAMPLE==3
+    matrix X = {0,1; 1,1}
+elif EXAMPLE==4
+    matrix X = {1,0,1,1;\
+      1,1,0,0;\
+      1,0,1,0;\
+      0,0,1,1}
+    
+elif EXAMPLE==5
+    matrix X = {9, 49;\
+      24,54;\
+      51,28;\
+      81,54;\
+      81,23;\
+      86,32}
+      
+elif EXAMPLE==6
+    matrix X = {0, 3, 4, 5; 7, 6, 3, -1}
+endif
+
+
+
+
+function matrix euclidean_distances (const matrix X "Rows: observations, Cols: features",
+    const bool only_first_row[0] "Compute distances only for 1st row",
+      const int display_as[0] "0: full, 1: lower, 2: upper")
+
+    scalar N = rows(X)
+    if only_first_row
+        scalar ncols = 1
+    else
+        scalar ncols = N
+    endif
+    matrix EDM = zeros(N, ncols)
+    
+    loop j=1..ncols -q
+        # Grab row j and compare with all remaining rows
+        loop i=1..N -q
+            if j != i
+                matrix d = (X[j,]-X[i,])	# row vector 1xk
+                EDM[i,j] = sqrt(d*d')
+            endif
+        endloop
+    endloop
+    
+
+    if display_as == 0
+        return EDM
+    elif display_as == 1 && only_first_row==0
+        return lower(EDM)[,-N]
+    elif display_as == 2 && only_first_row==0
+        return upper(EDM)[,-1]
+    endif
+      
+end function
+
+D = euclidean_distances(X)
+D
+
