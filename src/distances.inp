@@ -45,7 +45,7 @@ function matrix distance_manhattan (const matrix X "Features",
     matrix m = mshape(NA, rows(X), rows(Y))
 
     # TODO: Is this loop avoidable?
-    loop i=1..cols(Y)
+    loop i=1..rows(Y)
         m[,i] = sumr(abs(X .- Y[i, ]))
     endloop
 

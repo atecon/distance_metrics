@@ -75,7 +75,7 @@ return: matrix, Distances for each observation (rows) with dimension NxK. */
 scalar n_clusters = rows(Y)
 matrix m = mshape(NA, rows(X), rows(Y))
 # TODO: Is this loop avoidable?
-loop i=1..cols(Y)
+loop i=1..rows(Y)
   m[,i] = sumr(abs(X .- Y[i, ]))
 endloop
 return m
