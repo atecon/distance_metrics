@@ -1,0 +1,16 @@
+clear
+set verbose off
+
+include distances.gfn
+
+matrix X = {1, 2; 3, 4}
+matrix Y = {1, 2; 0, 3}
+print X Y
+
+print "Euclidean distances (squareroot)"
+eval distance_euclidean(X, Y)
+print "Euclidean distances (squared)"
+eval distance_euclidean(X, Y, TRUE)
+
+print "Manhattan distances"
+eval distance_manhattan(X, Y)

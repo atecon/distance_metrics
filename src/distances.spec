@@ -1,0 +1,11 @@
+author = Artur Tarassow
+email = atecon@posteo.de
+version = 0.1
+date = 2021-10-17
+description = Compute pairwise distance metrics.
+tags = C10
+min-version = 2020e
+public = distance_manhattan distance_euclidean
+help = distances_help.txt
+sample-script = distances_sample.inp
+data-requirement = no-data-ok

@@ -1,2 +1,2 @@
-# distance_metrics
-Distance metrics such as Euclidean distance for gretl
+# distances
+Compute pairwise metrics and affinities using gretl.

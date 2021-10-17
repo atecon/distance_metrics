@@ -1,0 +1,53 @@
+function matrix distance_euclidean (const matrix X "Features",
+                                    const matrix Y "Centroids",
+                                    const bool squared[FALSE] "Return squared distances")
+    /* Compute the euclidean distances. If the first matrix X is of size N×M, and the second matrix ,Y , is of size K×M, then the distance matrix, D, will be N×K.
+
+    See here: https://www.dabblingbadger.com/blog/2020/2/27/implementing-euclidean-distance-matrix-calculations-from-scratch-in-python
+    and here: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.euclidean_distances.html#sklearn.metrics.pairwise.euclidean_distances
+
+    return: matrix, Distances for each observation (rows) with dimension NxK */
+
+    scalar n_clusters = rows(Y)
+
+    D1 = sumr(X .^ 2) * ones(1, n_clusters)
+    D2 = ones(rows(X), 1) * sumr(Y .^2)'
+    D3 = 2 .* (X * Y')
+    distances = D1 + D2 - D3
+
+    /*
+    # This yields exactly the same results - but uses a loop
+    matrix distances = mshape(NA, rows(X), n_clusters)
+    loop j=1..n_clusters               # compute distances from each centroid
+        z = X .- Y[j,]   # deviations from centroid
+        distances[,j] = sumr(z.^2)
+    endloop
+    */
+
+    if squared
+        return distances
+    else
+        return sqrt(distances)
+    endif
+end function
+
+
+function matrix distance_manhattan (const matrix X "Features",
+                                    const matrix Y "Centroids")
+    /* Compute the Manhattan distances for each observation of X.
+    Each column in both X and Y refer to some p-dimensional point. Each row in X refers to some observation. And each row in Y refers to some different p-dimension point for which to compute the distance from. If the first matrix X is of size N×M, and the second matrix Y is of size K×M, then the distance matrix, D, will be N×K.
+
+    See here: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.manhattan_distances.html
+
+    return: matrix, Distances for each observation (rows) with dimension NxK. */
+
+    scalar n_clusters = rows(Y)
+    matrix m = mshape(NA, rows(X), rows(Y))
+
+    # TODO: Is this loop avoidable?
+    loop i=1..cols(Y)
+        m[,i] = sumr(abs(X .- Y[i, ]))
+    endloop
+
+    return m
+end function
