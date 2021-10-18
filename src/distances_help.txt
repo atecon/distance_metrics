@@ -41,7 +41,8 @@ Y:              matrix, dimension KxM
 Return:
 Matrix of dimension NxK with the distances for each observation (rows) and for each of the K M-dimensional points (columns).
 For details see here:
-https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.manhattan_distances.html
+1. https://en.wikipedia.org/wiki/Taxicab_geometry
+2. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.manhattan_distances.html
 -----------------------------------------------------------------------
 
 

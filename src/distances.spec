@@ -1,7 +1,7 @@
 author = Artur Tarassow
 email = atecon@posteo.de
 version = 0.1
-date = 2021-10-17
+date = 2021-10-18
 description = Compute pairwise distance metrics.
 tags = C10
 min-version = 2020e

@@ -3,7 +3,7 @@
 <gretl-function-package name="distances" no-data-ok="true" minver="2020e">
 <author email="atecon@posteo.de">Artur Tarassow</author>
 <version>0.1</version>
-<date>2021-10-17</date>
+<date>2021-10-18</date>
 <description>Compute pairwise distance metrics.</description>
 <tags>C10</tags>
 <help>
@@ -50,7 +50,8 @@ Y:              matrix, dimension KxM
 Return:
 Matrix of dimension NxK with the distances for each observation (rows) and for each of the K M-dimensional points (columns).
 For details see here:
-https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.manhattan_distances.html
+1. https://en.wikipedia.org/wiki/Taxicab_geometry
+2. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.manhattan_distances.html
 -----------------------------------------------------------------------
 
 
