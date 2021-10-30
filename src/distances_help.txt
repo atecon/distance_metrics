@@ -7,6 +7,10 @@ Source code and test script(s) can be found here:
 https://github.com/atecon/distances
 
 
+RUN unit tests:
+Execute the shell script "./run_tests.sh" which executes the gretl script ".tests/run_tests.inp".
+
+
 PUBLIC FUNCTIONS:
 
 -----------------------------------------------------------------------
