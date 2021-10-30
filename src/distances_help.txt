@@ -1,3 +1,6 @@
+RETIRED PACKAGE AS SUPERSEDED BY GRETL'S INTERNAL DISTANCE() FUNCTION AVAILABLE SINCE VERSION 2021e.
+
+
 This package supplies functions for computing distances between points in multidimensional space. It's inspired by sklearn's metrics.pairwise class for Python:
 https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics.pairwise
 
