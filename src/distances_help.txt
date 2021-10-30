@@ -2,6 +2,10 @@ This package supplies functions for computing distances between points in multid
 https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics.pairwise
 
 
+Please ask questions and report bugs on the gretl mailing list if possible. Alternatively, create an issue ticket on the github repo (see below).
+Source code and test script(s) can be found here:
+https://github.com/atecon/distances
+
 
 PUBLIC FUNCTIONS:
 
